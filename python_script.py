@@ -23,6 +23,7 @@
 #pip install lifelines
 
 # %%
+import argparse
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -88,8 +89,15 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_classif
 from sklearn.model_selection import cross_val_score
 
+
+# Parse data-dir and output-dir arguments
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--data-dir", type=Path, help="Path to directory containing data")
+parser.add_argument("--output-dir", type=Path, help="Path to directory to write analysis outputs to")
+args = parser.parse_args()
+
 # %%
-subset_df = pd.read_csv('//live.rd.ucl.ac.uk/ritd-ag-project-rd01fz-rgidd68/Python/clusterfile_20062024.csv')
+subset_df = pd.read_csv(args.data_dir / 'clusterfile_20062024.csv')
 
 # %%
 X_train = subset_df.drop(columns = ['X_mi_m','event_cmp','tstop'])
@@ -203,7 +211,7 @@ rf.fit(X_train, y_train)
 
 # %%
 # save model with joblib 
-filename = '//live.rd.ucl.ac.uk/ritd-ag-project-rd01fz-rgidd68/test/joblib_boost_model_20062024.sav'
+filename = args.output_dir / 'joblib_boost_model_20062024.sav'
 joblib.dump(rf, filename)
 
 # %%

@@ -41,7 +41,7 @@ mkdir outputs
 # Run analysis script using Python in activated virtual environment passing in path to
 # directory containing input data and path to directory to write outputs to
 echo "Running analysis script..."
-python $PROJECT_DIR/Python script 20062024.py --data-dir $PROJECT_DIR/data --output-dir outputs
+python $PROJECT_DIR/python_script.py --data-dir $PROJECT_DIR/data --output-dir outputs
 echo "...done."
 
 # Copy script outputs back to scratch space under a job ID specific subdirectory
