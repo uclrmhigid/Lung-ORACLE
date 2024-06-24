@@ -31,3 +31,4 @@ qsub run_analysis.sh
 
 qstat
 
+less 
