@@ -3,31 +3,31 @@
 # Example batch script to run a Python script in a virtual environment.
 
 # Request 1 minutes of wallclock time (format hours:minutes:seconds).
-#$ -l h_rt=0:1:0
+#$ -l h_rt=24:0:0
 
 # Request 1 gigabyte of RAM for each core/thread 
 # (must be an integer followed by M, G, or T)
-#$ -l mem=1G
+#$ -l mem=8G
 
 # Request 1 gigabyte of TMPDIR space (default is 10 GB)
-#$ -l tmpfs=1G
+#$ -l tmpfs=10G
 
 # Set the name of the job.
 #$ -N python-analysis-example
 
 # Request 1 cores.
-#$ -pe smp 1
+#$ -pe smp 4
 
 # Set the working directory to project directory in your scratch space.
 # Replace "<your_UCL_id>" with your UCL user ID
-#$ -wd /home/rmhigid/Scratch/Lung-ORACLE
+#$ -wd /home/<your_UCL_id>/Scratch/Lung-ORACLE
 
 # Load python3 module - this must be the same version as loaded when creating and
 # installing dependencies in the virtual environment
 module load python3/3.11
 
 # Define a local variable pointing to the project directory in your scratch space
-PROJECT_DIR=/home/rmhigid/Scratch/Lung-ORACLE
+PROJECT_DIR=/home/<your_UCL_id>/Scratch/Lung-ORACLE
 
 # Activate the virtual environment in which you installed the project dependencies
 source $PROJECT_DIR/venv/bin/activate
@@ -41,7 +41,7 @@ mkdir outputs
 # Run analysis script using Python in activated virtual environment passing in path to
 # directory containing input data and path to directory to write outputs to
 echo "Running analysis script..."
-python $PROJECT_DIR/python_script.py --data-dir $PROJECT_DIR/data --output-dir outputs
+python "$PROJECT_DIR/Python_script.py" --data-dir $PROJECT_DIR/data --output-dir outputs
 echo "...done."
 
 # Copy script outputs back to scratch space under a job ID specific subdirectory
