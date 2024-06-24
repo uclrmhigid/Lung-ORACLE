@@ -22,3 +22,4 @@ sed -i "s/<your_UCL_id>/$USER/g" run_analysis.sh
 
 qsub run_analysis.sh
 qstat
+
