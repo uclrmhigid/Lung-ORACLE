@@ -97,7 +97,7 @@ parser.add_argument("--output-dir", type=Path, help="Path to directory to write 
 args = parser.parse_args()
 
 # %%
-subset_df = pd.read_csv(args.data_dir / 'clusterfile_20062024.csv')
+subset_df = pd.read_csv(args.data_dir / 'synthetic_data_24062024.csv')
 
 # %%
 X_train = subset_df.drop(columns = ['X_mi_m','event_cmp','tstop'])
