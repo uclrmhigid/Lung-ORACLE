@@ -5,7 +5,7 @@ ssh <user_ID>@myriad.rc.ucl.ac.uk
 cd ~/Scratch
 
 [may need rm -rf Lung-ORACLE]
-git clone https://github.com/<user_ID>/Lung-ORACLE
+git clone https://github.com/uclrmhigid/Lung-ORACLE
 
 cd Lung-ORACLE
 
