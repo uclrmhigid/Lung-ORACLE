@@ -17,3 +17,12 @@ source venv/bin/activate
 
 python -m pip install -r requirements.txt
 
+NEED UPLOAD DATA TO folder
+
+ls data
+
+sed -i "s/<your_UCL_id>/$USER/g" run_analysis.sh
+
+qsub run_analysis.sh
+
+qstat
