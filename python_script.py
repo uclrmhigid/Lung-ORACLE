@@ -802,8 +802,7 @@ print(mean_value)
 
 # %%
 unique_values, counts = np.unique(y_train["Survival_in_days"], return_counts=True)
-print("Unique Values:", unique_values)
-print("Counts:", counts)
+
 
 # set time period - use if restrict f/u to 5 years
 rsf_times = unique_values[unique_values <=5]
