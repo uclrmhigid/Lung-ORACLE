@@ -134,7 +134,7 @@ random_state = 20
 
 # %%
 def objective(trial):
-    loss = trial.suggest_categorical('loss', ['coxph', 'squared'])
+    #loss = trial.suggest_categorical('loss', ['coxph', 'squared'])
     learning_rate = trial.suggest_float('learning_rate', 0.1,1.0)
     n_estimators = trial.suggest_int('n_estimators', 2,100)
     min_samples_split = trial.suggest_int('min_samples_split', 2, 100)
@@ -146,7 +146,7 @@ def objective(trial):
     
 
     boost_tree  = GradientBoostingSurvivalAnalysis(
-        loss = loss,
+        #loss = loss,
         learning_rate = learning_rate,
         n_estimators = n_estimators,
         min_samples_split = min_samples_split,
@@ -189,7 +189,7 @@ for key, value in trial.params.items():
 
 # %%
 boost_tree = GradientBoostingSurvivalAnalysis(
-        loss = trial.params['loss'],
+        #loss = trial.params['loss'],
         learning_rate = trial.params['learning_rate'],
         n_estimators = trial.params['n_estimators'],
         min_samples_split = trial.params['min_samples_split'],
