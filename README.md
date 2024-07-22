@@ -32,3 +32,5 @@ qsub run_analysis.sh
 qstat
 
 less 
+
+jobhist --hours=300
