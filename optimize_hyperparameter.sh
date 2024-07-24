@@ -46,7 +46,7 @@ echo "Running hyperparameter optimization script on ${NSLOTS} processes..."
 for i in $(seq 1 $NSLOTS)
 do
   python $PROJECT_DIR/optimize_hyperparameters.py \
-    --data-dir $PROJECT_DIR/data/synthetic_data_24062024.csv \
+    --data-path $PROJECT_DIR/data/synthetic_data_24062024.csv \
     --journal-storage-path $OUTPUT_DIR/optimization_study_journal.log \
     --timeout-hours 5 \
     --n-trials 5 \
