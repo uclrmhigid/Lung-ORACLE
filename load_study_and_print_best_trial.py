@@ -22,9 +22,9 @@ def parse_arguments():
 
 def load_study_and_print_best_trial(journal_storage_path, study_name):
     storage = optuna.storages.JournalStorage(
-        optuna.storages.JournalFileStorage(journal_storage_path),
+        optuna.storages.JournalFileStorage(str(journal_storage_path)),
     )
-    study = optuna.study.load_study(study_name, storage=storage)
+    study = optuna.study.load_study(study_name=study_name, storage=storage)
     print("# Best trial")
     print(f"  Value: {study.best_trial.value:.5f}")
     print("  Params: ")

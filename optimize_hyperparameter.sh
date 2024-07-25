@@ -36,7 +36,7 @@ source $PROJECT_DIR/venv/bin/activate
 cd $TMPDIR
 
 # Make a directory save optimization script outputs to
-OUTPUT_DIR = outputs
+OUTPUT_DIR=outputs
 mkdir $OUTPUT_DIR
 
 # Run multiple instances of optimization script using Python in activated virtual
