@@ -99,10 +99,13 @@ if __name__ == "__main__":
     args = parse_arguments()
     X_train, y_train = load_training_data(args.data_path)
     storage = optuna.storages.JournalStorage(
-        optuna.storages.JournalFileStorage(args.journal_storage_path),
+        optuna.storages.JournalFileStorage(str(args.journal_storage_path)),
     )
     study = optuna.create_study(
-        study_name=args.study_name, storage=storage, direction="maximize"
+        study_name=args.study_name,
+        storage=storage,
+        direction="maximize",
+        load_if_exists=True
     )
     study.optimize(
         partial(
