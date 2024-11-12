@@ -3,7 +3,7 @@
 # Job script to optimize hyperparameters of model over multiple processes.
 
 # Request 1 minutes of wallclock time (format hours:minutes:seconds).
-#$ -l h_rt=0:6:0
+#$ -l h_rt=6:0:0
 
 # Request 1 gigabyte of RAM for each core/thread 
 # (must be an integer followed by M, G, or T)
